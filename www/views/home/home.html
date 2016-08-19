@@ -1,0 +1,81 @@
+<ion-view view-title="Home" hide-back-button="true">
+  <ion-content class="padding-top">
+    <div class="list text-center padding">
+            <i class="icon ion-android-walk -b medium positive"></i>
+          </div>
+
+            <div class="col text-center">
+
+          <h1>Hello {{ user.firstname }}!</h1>
+    <h4>You are on Team: {{user.team}}</h4>
+    
+  
+
+      <h4>You have not logged your steps since: {{lastDate | date}}</h4>
+      
+      <h4>You have logged: {{total}} steps! Only {{distancetoprize}} steps until a prize!</h4>
+      
+      <h4>That's {{distancemiles}} miles!</h4>
+      
+
+
+      <!-- Enter steps taken for -->
+    <!--   
+      <form name="stepForm" novalidate ng-submit="stepForm.$valid && submitSteps()">
+        <md-datepicker ng-model="stepLog.date" ng-change="onDateSelect()"  name="pickeddate" md-min-date="minDate" md-max-date="maxDate" md-is-error="stepForm.pickeddate.$invalid"></md-datepicker>
+
+        <div class="form-error" ng-messages="stepForm.pickeddate.$error" ng-if="stepForm.$submitted">
+          <div ng-message="valid">The entered value is not a date!</div>
+          <div ng-message="required">This date is required!</div>
+          <div ng-message="mindate">Date is too early!</div>
+          <div ng-message="maxdate">Date is too late!</div>
+        </div>
+
+        <br />
+        <md-input-container>
+          <label>Steps </label>
+          <input name="steps" type="number" ng-model="stepLog.steps"
+          ng-min="1"
+          ng-max="50000"
+          required />
+        </md-input-container>
+        <div class="form-errors" ng-messages="stepForm.steps.$error" ng-if="stepForm.$submitted">
+          <div class="form-error" ng-message="required">This field is required.</div>              
+          <div class="form-error" ng-message="min">You must log at least 1 step!</div>
+          <div class="form-error" ng-message="max">You tried to log greater than 50,000 steps!!!</div>
+        </div>
+        <br />
+        <md-button type="submit" class="button button-positive">Submit</md-button>
+      </form> -->
+
+     <!-- ng-click="submitSteps()" -->
+
+    <!--   <h2>Your logged steps:</h2>
+
+    <table class="loggedsteps" style="width:100%">
+      <caption>Your logged steps: </caption>
+      <tr>
+          <th> Date </th>
+          <th> Steps </th>
+      </tr>
+      <tr ng-repeat="x in entries | orderBy: 'date'">
+          <td>{{ x.date | date}}</td>
+          <td>{{ x.steps }}</td>
+      </tr>
+      <tr>
+           <td>Total:</td>
+           <td>{{ total }}</td>
+     </tr>
+    </table>
+       -->
+   
+
+   <!--  <div class="padding-bottom">
+        <input ng-click="logOut()" class="button button-block button-positive" value="Log Out">
+     </div> -->
+
+     </div>
+  </ion-content>
+
+
+</ion-view>
