@@ -36,6 +36,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     $scope.total = 0;
     $scope.distancemiles = 0;
     $scope.distancetoprize=0;
+    $scope.distancetovegas=0;
 
     $scope.entries.forEach(function(entry){
       if($scope.lastDate.getTime() < entry.date){
@@ -49,6 +50,11 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     if($scope.total > 0){
         $scope.distancemiles = $scope.total / 2000.0;
         $scope.distancetoprize = 425000 - $scope.total;
+        $scope.distancetovegas= $scope.distancemiles / 2.61;
+        $scope.vegasStyles = {
+          'margin-left': '' + $scope.distancetovegas / 2 + '%',
+          'margin-right': '' + 50-($scope.distancetovegas / 2) + '%'
+        };
       };
 
     if($scope.distancetoprize < 0){

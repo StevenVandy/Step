@@ -13,12 +13,24 @@
 
       <h4>You have not logged your steps since: {{lastDate | date}}</h4>
       
-      <h4>You have logged: {{total}} steps! Only {{distancetoprize}} steps until a prize!</h4>
+      <h4>You have logged: {{total}} steps!</h4>
+      
+
+      <h4>Only {{distancetoprize}} steps until a prize!</h4>
       
       <h4>That's {{distancemiles}} miles!</h4>
       
+      <br><br><br><br>
 
+      <div>
+        <image src="https://pbs.twimg.com/profile_images/545694965917966336/hsZg-dNz.png" height="100" />
+        <i class="icon ion-android-walk -b medium black" ng-style="vegasStyles"></i>
+        <image src="https://az616578.vo.msecnd.net/files/2016/02/21/635916293383866494790722050_vegas2.jpg" height="100"/>
+      </div>
 
+      <br><br>
+
+      <h4>You are {{distancetovegas | number:0}}% of the way to vegas!</h4>
       <!-- Enter steps taken for -->
     <!--   
       <form name="stepForm" novalidate ng-submit="stepForm.$valid && submitSteps()">
