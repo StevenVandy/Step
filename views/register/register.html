@@ -1,0 +1,88 @@
+<ion-view view-title="Register">
+  <ion-content class="padding-top">
+    <div class="text-center padding-top">
+      <i class="icon ion-android-person-add larger positive"></i>
+    </div>
+    <form name="registerForm" novalidate ng-submit="registerForm.$valid && register(user)"
+    ng-class="{ 'has-error' : registerForm.txtemail.$invalid && registerForm.$submitted }">
+    <div class="list">        
+    
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+        <input name="txtemail" type="email" ng-model="user.email" ng-pattern="/^[A-Za-z0-9._%+-]+@sce.com$/" placeholder="Email@sce.com"
+        ng-minlength="5"
+        ng-maxlength="40"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtemail.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">This should be name@sce.com</div>
+        <div class="form-error" ng-message="pattern">This should be name@sce.com</div> <!-- I DID A THING -->
+        <div class="form-error" ng-message="email">This field is must be an email.</div>
+        <div class="form-error" ng-message="maxlength">Must be less than 40 characters</div>
+      </div>
+        <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : registerForm.txtpassword.$invalid  && registerForm.$submitted}">
+        <span class="input-label">Password</span>
+        <input name="txtpassword" type="password" ng-model="user.password" placeholder="Password"
+        ng-minlength="5"
+        ng-maxlength="25"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtpassword.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please enter and remember your password!</div>
+        <div class="form-error" ng-message="minlength">Password must be greater than 5 characters</div>
+        <div class="form-error" ng-message="maxlength">Password must be less than 25 characters</div>
+        <div class="form-error" ng-message="pattern">Only use letters and numbers</div>
+      </div>
+
+      <label class="item item-input item-floating-label">
+          <span class="input-label">First Name</span>
+        <input name="txtfirstname" type="text" ng-model="user.firstname" placeholder="First Name"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtfirstname.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please enter your first name</div>
+      </div>
+
+
+      <label class="item item-input item-floating-label">
+          <span class="input-label">Last Name</span>
+        <input name="txtlastname" type="text" ng-model="user.lastname" placeholder="Last Name"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtlastname.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please enter your last name</div>
+      </div>
+
+      
+      <label class="item item-input item-floating-label">
+          <span class="input-label has-input">Org Unit</span>
+        <select style="text-align:center;margin:auto;" name="ou" type="text" ng-model="user.ou" ng-options="ou for ou in ous track by ou" required></select>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.ou.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please select your OU</div>
+      </div>
+      
+
+      <label class="item">
+          <input type="checkbox" id="cb" name="cb" required ng-model="user.agreed" />
+          <span style="white-space: normal">I agree that all data submitted to SCE Step App is accurate and public. Data will to be tallied and visualized to determine placement in the Step competition.</span>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.cb.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please agree to terms</div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+    <div class="padding-top">
+      <input type="submit" value="Register" class="button button-block button-positive"/>
+    </div>
+  </form>
+  </ion-content>
+</ion-view>

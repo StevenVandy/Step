@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-tabs class="tabs-icon-top tabs-positive">
+
+    <ion-tab title="Home" icon-on="ion-ios-home" icon-off="ion-ios-home-outline" href="#/home">
+      <ion-nav-view name="home-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Log Steps" icon-on="ion-ios-paw" icon-off="ion-ios-paw-outline" href="#/logsteps">
+      <ion-nav-view name="logsteps-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab title="Sign-Out" icon="ion-log-out" ng-click="logout()">
+    </ion-tab>
+
+    <ion-tab ng-if="user.admin" title="Admin" icon="ion-unlocked" href="#/admin">
+    <ion-nav-view name="admin-tab"></ion-nav-view>
+    </ion-tab>
+
+  </ion-tabs>
+</ion-view>
