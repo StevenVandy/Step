@@ -23,9 +23,9 @@ angular.module('App').controller('loginController', function ($scope, $state,$co
             $localStorage.userkey = userkey;
 
               Utils.hide();
-              $ionicHistory.clearCache().then(function(){
+              // $ionicHistory.clearCache().then(function(){
                 $state.go('tabs.home')
-              })
+              // })
               console.log("Starter page","Home");
 
           })

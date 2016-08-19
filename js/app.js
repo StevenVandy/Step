@@ -1,6 +1,6 @@
 'Use Strict';
 angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngMaterial'])
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
     .state('login', {
       url: '/login',
@@ -87,6 +87,7 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
     });
 
   $urlRouterProvider.otherwise("/login");
+  $ionicConfigProvider.views.maxCache(0);
 })
 
 
