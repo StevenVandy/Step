@@ -13,20 +13,25 @@
 
       <h4>You have not logged your steps since: {{lastDate | date}}</h4>
       
-      <h4>You have logged: {{total}} steps!</h4>
+      <h4>You have logged: {{total}} steps,</h4>
+      <h4>that's {{distancemiles}} miles!</h4>
       
+      <h4>You are averaging {{averagestepsperday}} steps per day!</h4>
 
-      <h4>Only {{distancetoprize}} steps until a prize!</h4>
+      <h4>Only {{distancetoprize}} steps until you are eligible for prize!</h4>
+
+      <h4>Only {{distancetogoal}} steps until you reach your goal!</h4>
       
-      <h4>That's {{distancemiles}} miles!</h4>
       
       <br><br><br><br>
 
       <div>
-        <image src="https://pbs.twimg.com/profile_images/545694965917966336/hsZg-dNz.png" height="100" />
+        <image src="https://www.sce.com/wps/scethemeresponsive/static/themes/scethemeresponsive/images/apple-touch-icon-144x144-precomposed.png" height="100" />
         <i class="icon ion-android-walk -b medium black" ng-style="vegasStyles"></i>
-        <image src="https://az616578.vo.msecnd.net/files/2016/02/21/635916293383866494790722050_vegas2.jpg" height="100"/>
+        <image src="https://honeymoonpixie.com/assets/shutterstock_5704870s(1).jpg" height="100"/>
+        <md-progress-linear md-mode="determinate" value="{{distancetovegas}}" style="padding:25%"></md-progress-linear>
       </div>
+
 
       <br><br>
 
