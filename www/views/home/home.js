@@ -24,6 +24,9 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     return index;
   }
 
+  $scope.stepcompstartdate = new Date(2016,10,12,0,0,0,0);
+  $scope.usernumberofdays = Math.ceil(-($scope.lastDate.getTime()-$scope.stepcompstartdate.getTime())/(1000*60*60*24));//turn milli seconds into days
+
   $scope.onDateSelect = function(){
     var index = $scope.findEntryIndexByDate($scope.stepLog.date);
 
@@ -32,11 +35,16 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     }
   };
 
+
+  console.log($scope.user.goal)
+
   $scope.calculate = function(){
     $scope.total = 0;
     $scope.distancemiles = 0;
     $scope.distancetoprize=0;
     $scope.distancetovegas=0;
+    $scope.averagestepsperday=0;
+    $scope.distancetogoal=0;
 
     $scope.entries.forEach(function(entry){
       if($scope.lastDate.getTime() < entry.date){
@@ -52,14 +60,27 @@ angular.module('App').controller('homeController', function ($scope, user, entri
         $scope.distancetoprize = 425000 - $scope.total;
         $scope.distancetovegas= $scope.distancemiles / 2.61;
         $scope.vegasStyles = {
-          'margin-left': '' + $scope.distancetovegas / 2 + '%',
-          'margin-right': '' + 50-($scope.distancetovegas / 2) + '%'
+          'margin-left': $scope.distancetovegas / 2 + '%',
+          'margin-right': 50-($scope.distancetovegas / 2) + '%'
         };
       };
 
     if($scope.distancetoprize < 0){
         $scope.distancetoprize = 0;
-      };
+      }
+
+    if($scope.total > 0){
+        $scope.distancetogoal = $scope.user.goal - $scope.total;
+      }
+
+      console.log($scope.usernumberofdays)
+
+      // if($scope.usernumberofdays > 1){
+        $scope.averagestepsperday=Math.round($scope.total/$scope.usernumberofdays);
+      // }
+
+
+
   };
 
   $scope.onDateSelect();

@@ -51,7 +51,7 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
       },
       resolve: {
         admin: function(user, $state){
-          if (!user.admin){
+          if (!user.admin && !user.teamadmin){
             $state.go('tabs.home')
           }
         }
