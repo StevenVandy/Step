@@ -79,6 +79,20 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     if($scope.total > 0){
         $scope.distancetogoal = $scope.user.goalsteps - $scope.total;
         $scope.percentagetogoal=$scope.total / $scope.user.goalsteps;
+
+
+        if($scope.percentagetogoal > 1){
+        $scope.distancetogoal = 0;
+        $scope.percentagetogoal= 1;
+        
+      }
+
+      if($scope.percentagetoprize > 1){
+        $scope.distancetogoal = 0;
+        $scope.percentagetoprize= 1;
+        
+      }
+
       }
 
       console.log($scope.total)
