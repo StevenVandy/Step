@@ -45,11 +45,11 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   $scope.calculate = function(){
     $scope.total = 0;
     $scope.distancemiles = 0;
-    $scope.distancetoprize=0;
+    $scope.distancetoprize=425000;
     $scope.percentagetoprize=0;
     $scope.distancetovegas=0;
     $scope.averagestepsperday=0;
-    $scope.distancetogoal=0;
+    $scope.distancetogoal=$scope.user.goalsteps;
     $scope.percentagetogoal=0;
 
     $scope.entries.forEach(function(entry){
