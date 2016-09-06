@@ -25,7 +25,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   }
 
   $scope.stepcompstartdate = new Date(2016,10,12,0,0,0,0);
-  $scope.usernumberofdays = Math.ceil(-($scope.lastDate.getTime()-$scope.stepcompstartdate.getTime())/(1000*60*60*24));//turn milli seconds into days
+  $scope.usernumberofdays = Math.ceil(-($scope.lastDate.getTime()+$scope.stepcompstartdate.getTime())/(1000*60*60*24));//turn milli seconds into days
 
   $scope.onDateSelect = function(){
     var index = $scope.findEntryIndexByDate($scope.stepLog.date);
