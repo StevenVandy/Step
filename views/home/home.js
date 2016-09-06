@@ -42,9 +42,11 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     $scope.total = 0;
     $scope.distancemiles = 0;
     $scope.distancetoprize=0;
+    $scope.percentagetoprize=0;
     $scope.distancetovegas=0;
     $scope.averagestepsperday=0;
     $scope.distancetogoal=0;
+    $scope.percentagetogoal=0;
 
     $scope.entries.forEach(function(entry){
       if($scope.lastDate.getTime() < entry.date){
@@ -58,11 +60,8 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     if($scope.total > 0){
         $scope.distancemiles = $scope.total / 2000.0;
         $scope.distancetoprize = 425000 - $scope.total;
+        $scope.percentagetoprize = $scope.distancetoprize/425000;
         $scope.distancetovegas= $scope.distancemiles / 2.61;
-        $scope.vegasStyles = {
-          'margin-left': $scope.distancetovegas / 2 + '%',
-          'margin-right': 50-($scope.distancetovegas / 2) + '%'
-        };
       };
 
     if($scope.distancetoprize < 0){
@@ -71,6 +70,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
 
     if($scope.total > 0){
         $scope.distancetogoal = $scope.user.goal - $scope.total;
+        $scope.percentagetogoal=$scope.distancetogoal / $scope.user.goal;
       }
 
       console.log($scope.usernumberofdays)

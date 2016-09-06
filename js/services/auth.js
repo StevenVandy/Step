@@ -13,6 +13,7 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
         firstname: user.firstname,
         lastname: user.lastname,
         ou: user.ou,
+        goal: user.goal,
         team: 'Empty',
 				registered_in: Date()
       };

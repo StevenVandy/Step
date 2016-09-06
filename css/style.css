@@ -12,6 +12,10 @@
     font-size: 30px;
 }
 
+.grey-bg {
+  background: #f6f9fa;
+}
+
 
 /** Error Messages **/
 
@@ -45,3 +49,11 @@ label.item.valid-lr {
     margin-right:auto;
       padding: 10px;
       }
+
+ .table-scroll {
+  height:150px;
+  overflow:auto;  
+  margin-top:20px;
+}
+
+
