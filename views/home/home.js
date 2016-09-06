@@ -24,9 +24,13 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     return index;
   }
 
-  $scope.stepcompstartdate = new Date(2016,10,12,0,0,0,0);
-  $scope.usernumberofdays = Math.ceil(-($scope.lastDate.getTime()+$scope.stepcompstartdate.getTime())/(1000*60*60*24));//turn milli seconds into days
+  $scope.stepcompstartdate = new Date(2016,08,12,0,0,0,0);
+ 
 
+
+
+ // $scope.usernumberofdays = ($scope.lastDateflat.getTime()-$scope.stepcompstartdate.getTime())/(1000*60*60*24);///(1000*60*60*24)turn milli seconds into days
+  
   $scope.onDateSelect = function(){
     var index = $scope.findEntryIndexByDate($scope.stepLog.date);
 
@@ -36,7 +40,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   };
 
 
-  console.log($scope.user.goal)
+  console.log($scope.user.goalsteps)
 
   $scope.calculate = function(){
     $scope.total = 0;
@@ -60,7 +64,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     if($scope.total > 0){
         $scope.distancemiles = $scope.total / 2000.0;
         $scope.distancetoprize = 425000 - $scope.total;
-        $scope.percentagetoprize = $scope.distancetoprize/425000;
+        $scope.percentagetoprize = $scope.total/425000;
         $scope.distancetovegas= $scope.distancemiles / 2.61;
       };
 
@@ -68,11 +72,24 @@ angular.module('App').controller('homeController', function ($scope, user, entri
         $scope.distancetoprize = 0;
       }
 
-    if($scope.total > 0){
-        $scope.distancetogoal = $scope.user.goalsteps - $scope.total;
-        $scope.percentagetogoal=$scope.distancetogoal / $scope.user.goalsteps;
+      if($scope.distancetogoal < 0){
+        $scope.distancetogoal = 0;
       }
 
+    if($scope.total > 0){
+        $scope.distancetogoal = $scope.user.goalsteps - $scope.total;
+        $scope.percentagetogoal=$scope.total / $scope.user.goalsteps;
+      }
+
+      console.log($scope.total)
+      console.log($scope.distancetogoal)
+      console.log($scope.lastDatemonth)
+      console.log($scope.lastDateyear)
+      console.log($scope.percentagetogoal)
+      console.log($scope.percentagetoprize)
+      console.log($scope.lastDate)
+      console.log($scope.lastDateflat)
+      console.log($scope.stepcompstartdate)
       console.log($scope.usernumberofdays)
 
       // if($scope.usernumberofdays > 1){
