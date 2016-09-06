@@ -1,5 +1,11 @@
 <ion-view view-title="Register">
+
+<div backstretch backstretch-images="'https://media.giphy.com/media/2eN0NkCvhjxqo/giphy.gif'"></div>
+
   <ion-content class="padding-top">
+
+
+  <div style="margin-left:20%; margin-right:20%; margin-bottom:0%;margin-top:0%; background-color:rgba(256, 256, 256, 1)">
     <div class="text-center padding-top">
       <i class="icon ion-android-person-add larger positive"></i>
     </div>
@@ -34,6 +40,20 @@
         <div class="form-error" ng-message="pattern">Only use letters and numbers</div>
       </div>
 
+
+      <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : registerForm.txtpassword.$invalid  && registerForm.$submitted}">
+        <span class="input-label">Confirm Password</span>
+        <input name="txtpasswordconfirm" type="password" ng-model="user.passwordConfirm" placeholder="Confirm Password"
+        match="user.password"
+        required>
+      </label>
+      <div class="form-errors" ng-messages="registerForm.txtpasswordconfirm.$error" ng-if="registerForm.$submitted">
+        <div class="form-error" ng-message="required">Please enter and remember your password!</div>
+        <div class="form-error" ng-message="match">Passwords do not match!</div>
+        
+      </div>
+
+
       <label class="item item-input item-floating-label">
           <span class="input-label">First Name</span>
         <input name="txtfirstname" type="text" ng-model="user.firstname" placeholder="First Name"
@@ -64,7 +84,7 @@
 
 
       <label class="item item-input item-floating-label">
-          <span class="input-label">Goal Steps</span>
+          <span class="input-label">Goal Steps (about 2000 steps in a mile)</span>
         <input name="goalsteps" type="number" ng-model="user.goalsteps" placeholder="Goal Steps" ng-min="1"
         required>
 
@@ -96,5 +116,7 @@
       <input type="submit" value="Register" class="button button-block button-positive"/>
     </div>
   </form>
+
+  </div>
   </ion-content>
 </ion-view>

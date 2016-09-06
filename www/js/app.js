@@ -1,5 +1,5 @@
 'Use Strict';
-angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngMaterial'])
+angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages', 'ngMaterial', 'validation.match','ng-backstretch'])
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $stateProvider
     .state('login', {
