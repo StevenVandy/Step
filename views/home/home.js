@@ -69,8 +69,8 @@ angular.module('App').controller('homeController', function ($scope, user, entri
       }
 
     if($scope.total > 0){
-        $scope.distancetogoal = $scope.user.goal - $scope.total;
-        $scope.percentagetogoal=$scope.distancetogoal / $scope.user.goal;
+        $scope.distancetogoal = $scope.user.goalsteps - $scope.total;
+        $scope.percentagetogoal=$scope.distancetogoal / $scope.user.goalsteps;
       }
 
       console.log($scope.usernumberofdays)
