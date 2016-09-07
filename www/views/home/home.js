@@ -45,7 +45,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   $scope.calculate = function(){
     $scope.total = 0;
     $scope.distancemiles = 0;
-    $scope.distancetoprize=425000;
+    $scope.distancetoprize=450000;
     $scope.percentagetoprize=0;
     $scope.distancetovegas=0;
     $scope.averagestepsperday=0;
@@ -63,8 +63,8 @@ angular.module('App').controller('homeController', function ($scope, user, entri
 
     if($scope.total > 0){
         $scope.distancemiles = $scope.total / 2000.0;
-        $scope.distancetoprize = 425000 - $scope.total;
-        $scope.percentagetoprize = $scope.total/425000;
+        $scope.distancetoprize = 450000 - $scope.total;
+        $scope.percentagetoprize = $scope.total/450000;
         $scope.distancetovegas= $scope.distancemiles / 2.61;
       };
 
