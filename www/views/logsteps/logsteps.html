@@ -11,18 +11,7 @@
 
             <div class="col text-center">
 
-          <!-- <h1>Hello {{ user.firstname }}!</h1>
-          <h2>You are on Team: {{user.team}}</h2>
-    
-  
-
-      <span>You have not logged your steps since: </span>{{lastDate | date}}
-      <br />
-      <span>You have logged: {{total}} steps! Only {{distancetoprize}} steps until a prize!</span>
-      <br />
-      <span>That's {{distancemiles}} miles!</span>
-      <br /> -->
-
+         
 
       Enter steps taken for
       
@@ -32,8 +21,8 @@
         <div class="form-error" ng-messages="stepForm.pickeddate.$error" ng-if="stepForm.$submitted">
           <div ng-message="valid">The entered value is not a date!</div>
           <div ng-message="required">This date is required!</div>
-          <div ng-message="mindate">Date is too early!</div>
-          <div ng-message="maxdate">Date is too late!</div>
+          <div ng-message="mindate">Selected date is before the challenge starts!</div>
+          <div ng-message="maxdate">Selected date is after the challenge is over!</div>
         </div>
 
         <br /> <!-- {{stepLog.date | date}} -->
@@ -41,13 +30,13 @@
           <label>Steps </label>
           <input name="steps" type="number" ng-model="stepLog.steps"
           ng-min="1"
-          ng-max="50000"
+          ng-max="250000"
           required />
         </md-input-container>
         <div class="form-errors" ng-messages="stepForm.steps.$error" ng-if="stepForm.$submitted">
           <div class="form-error" ng-message="required">This field is required.</div>              
           <div class="form-error" ng-message="min">You must log at least 1 step!</div>
-          <div class="form-error" ng-message="max">You tried to log greater than 50,000 steps!!!</div>
+          <div class="form-error" ng-message="max">You tried to log greater than 250,000 steps, are you sure? If so separate into two logs.</div>
         </div>
         <br />
         <md-button type="submit" class="button button-positive">Submit</md-button>

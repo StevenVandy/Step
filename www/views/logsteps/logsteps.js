@@ -79,7 +79,7 @@ angular.module('App').controller('logstepsController', function ($scope, user, e
   //var maxdate = new date(2016,10,30,0,0,0,0);
 
   $scope.minDate = new Date(2016,8,12,0,0,0,0);
-  $scope.maxDate = new Date(2016,9,24,0,0,0,0);
+  $scope.maxDate = new Date(2016,9,23,0,0,0,0);
 
   $scope.logOut = function () {
       Auth.logout();
