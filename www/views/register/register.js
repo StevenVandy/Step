@@ -18,7 +18,7 @@ angular.module('App').controller('registerController', function ($scope, $state,
   };
 
  
-    $scope.ous = ['T&D', 'SIPP / Reg Affairs','Customer Service','IT']
+    $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services']
       
 
 
