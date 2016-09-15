@@ -85,13 +85,13 @@
 
       <label class="item item-input item-floating-label">
           <span class="input-label">Goal steps total for entire challenge (about 2000 steps in a mile)</span>
-        <input name="goalsteps" type="number" ng-model="user.goalsteps" placeholder="Goal steps total for entire challenge" ng-min="1"
+        <input name="goalsteps" type="number" ng-model="user.goalsteps" placeholder="Goal steps total for entire challenge" ng-min="0"
         required>
 
       </label>
       <div class="form-errors" ng-messages="registerForm.goalsteps.$error" ng-if="registerForm.$submitted">
-         <div class="form-error" ng-message="number">You did not enter a valid number</div>
-        <div class="form-error" ng-message="required">Please enter goal steps</div> <div class="form-error" ng-message="min">You must log at least 1 step!</div>
+         <div class="form-error" ng-message="number">You did not enter a valid number, no commas.</div>
+        <div class="form-error" ng-message="required">Please enter goal steps</div> <div class="form-error" ng-message="min">You must log at least a step!</div>
       </div>
       
 

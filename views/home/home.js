@@ -10,7 +10,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   };
 
   $scope.entries = entries;
-  $scope.lastDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  $scope.lastDate = new Date(new Date(2016,08,12,0,0,0,0));
 
   $scope.findEntryIndexByDate = function(date){
     var index = -1;

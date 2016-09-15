@@ -34,7 +34,8 @@
           required />
         </md-input-container>
         <div class="form-errors" ng-messages="stepForm.steps.$error" ng-if="stepForm.$submitted">
-          <div class="form-error" ng-message="required">This field is required.</div>              
+          <div class="form-error" ng-message="required">This field is required.</div>
+          <div class="form-error" ng-message="number">Only numbers, no commas.</div>          
           <div class="form-error" ng-message="min">You must log at least 1 step!</div>
           <div class="form-error" ng-message="max">You tried to log greater than 250,000 steps, are you sure? If so separate into two logs.</div>
         </div>
