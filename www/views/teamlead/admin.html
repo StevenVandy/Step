@@ -1,0 +1,43 @@
+
+<ion-view view-title="Admin">
+  <ion-content class="padding-top">
+    <div class="text-center padding-top">
+      <label class="item item-input item-floating-label" ng-if="user.admin">
+        <span class="input-label has-input">Org Unit</span>
+        <select style="text-align:center;margin:auto;" name="ou" type="text" ng-model="query.ou" ng-change="onOuSelect()" ng-options="ou for ou in ous track by ou" required></select>
+      </label>
+
+      <label class="item item-input item-floating-label">
+        <span class="input-label has-input">User</span>
+        <select style="text-align:center;margin:auto;" name="user" type="text" ng-model="query.user" ng-change="onUserSelect()" ng-options="(user.firstname + ' ' + user.lastname) for user in users track by user.id" required></select>
+      </label>
+      <div>
+        <md-button class="md-raised" ng-click="selectPreviousUser()">
+          <i class="ion-chevron-left small"></i>
+        </md-button>
+        &nbsp;
+        &nbsp;
+        <md-button class="md-raised" ng-click="selectNextUser()">
+          <i class="ion-chevron-right small"></i>
+        </md-button>
+      </div>
+
+      <table class="loggedsteps" style="width:100%">
+        <caption>Logged steps: </caption>
+        <tr>
+            <th> Date </th>
+            <th> Steps </th>
+        </tr>
+        <tr ng-repeat="x in entries | orderBy: 'date'">
+            <td>{{ x.date | date}}</td>
+            <td>{{ x.steps }}</td>
+        </tr>
+        <tr>
+             <td>Total:</td>
+             <td>{{ total }}</td>
+       </tr>
+      </table>
+
+    </div>
+  </ion-content>
+</ion-view>
