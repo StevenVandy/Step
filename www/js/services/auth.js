@@ -28,7 +28,8 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
 
     login: function(user) {
       return auth.$authWithPassword(
-        {email: user.email, password: user.password}
+        {email: user.email, password: user.password},
+        {remember: "sessionOnly"}
       );
     },
 

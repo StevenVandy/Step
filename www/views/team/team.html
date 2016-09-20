@@ -2,11 +2,6 @@
 <ion-view view-title="Admin">
   <ion-content class="padding-top">
     <div class="text-center padding-top">
-      <label class="item item-input item-floating-label" ng-if="user.admin">
-        <span class="input-label has-input">Org Unit</span>
-        <select style="text-align:center;margin:auto;" name="ou" type="text" ng-model="query.ou" ng-change="onOuSelect()" ng-options="ou for ou in ous track by ou" required></select>
-      </label>
-
       <label class="item item-input item-floating-label">
         <span class="input-label has-input">User</span>
         <select style="text-align:center;margin:auto;" name="user" type="text" ng-model="query.user" ng-change="onUserSelect()" ng-options="(user.firstname + ' ' + user.lastname) for user in users track by user.id" required></select>

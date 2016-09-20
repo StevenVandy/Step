@@ -11,7 +11,8 @@ angular.module('App').factory('StepLog', function($firebaseArray, FURL, Auth){
       var entry = {
         date: new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime(),
         steps: stepLog.steps | 0,
-        userId: Auth.user.profile.id
+        userId: Auth.user.profile.id,
+        ou: Auth.user.profile.ou
       }
 
       return Steps.$add(entry);

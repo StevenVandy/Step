@@ -41,6 +41,22 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
       templateUrl: 'views/register/register.html',
       controller:'registerController'
     })
+    .state('tabs.team', {
+      url: '/team',
+      views: {
+        'team-tab': {
+          templateUrl: 'views/team/team.html',
+          controller:'teamController'
+        }
+      },
+      resolve: {
+        admin: function(user, $state){
+          if (user.team === 'Empty'){
+            $state.go('tabs.home')
+          }
+        }
+      }
+    })
     .state('tabs.admin', {
       url: '/admin',
       views: {

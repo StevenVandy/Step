@@ -1,19 +1,14 @@
 'Use Strict';
-angular.module('App').controller('adminController', function (Auth, $state, $scope, StepLog, Admin, user) { 
+angular.module('App').controller('teamController', function (Auth, $state, $scope, StepLog, Admin, user) { 
 
-  if(user.teamadmin){
-    $scope.users = Admin.getUsersFromOu(user.ou);
-  }
+  console.log(Admin)
 
-  $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
+  $scope.users = Admin.getUsersFromTeam(user.team);
+
 
   $scope.query = {};
 
-  $scope.onOuSelect = function(){
-    $scope.users = Admin.getUsersFromOu($scope.query.ou);
-  };
-
-
+ 
   $scope.onUserSelect = function(){
     console.log($scope.query.user)
     $scope.users.forEach(function(user, i){
