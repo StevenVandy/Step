@@ -1,7 +1,11 @@
 'Use Strict';
 angular.module('App').controller('adminController', function (Auth, $state, $scope, StepLog, Admin, user) { 
 
-  if(user.teamadmin){
+  if(user.ouadmin){
+    $scope.users = Admin.getUsersFromOu(user.ou);
+  }
+
+  if(user.team){
     $scope.users = Admin.getUsersFromOu(user.ou);
   }
 
@@ -11,6 +15,16 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
 
   $scope.onOuSelect = function(){
     $scope.users = Admin.getUsersFromOu($scope.query.ou);
+    $scope.userTotal = 0;
+    $scope.users.$loaded().then(function(users){
+      users.forEach(function(stepUser){
+        StepLog.getEntries(stepUser.id).$loaded().then(function(entries){
+          entries.forEach(function(entry){
+            $scope.userTotal += entry.steps;
+          });
+        });
+      })
+    });
   };
 
 

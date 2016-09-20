@@ -5,6 +5,10 @@ angular.module('App').factory('Admin', function($firebaseArray, FURL, Auth){
   var Admin = {
     getUsersFromOu: function(ou){
       return $firebaseArray(ref.orderByChild('ou').equalTo(ou));
+    },
+
+    getUsersFromTeam: function(team){
+      return $firebaseArray(ref.orderByChild('team').equalTo(team));
     }
   };
 
