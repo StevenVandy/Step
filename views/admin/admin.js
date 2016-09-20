@@ -15,16 +15,16 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
 
   $scope.onOuSelect = function(){
     $scope.users = Admin.getUsersFromOu($scope.query.ou);
-    $scope.userTotal = 0;
-    $scope.users.$loaded().then(function(users){
-      users.forEach(function(stepUser){
-        StepLog.getEntries(stepUser.id).$loaded().then(function(entries){
-          entries.forEach(function(entry){
-            $scope.userTotal += entry.steps;
-          });
-        });
-      })
-    });
+    // $scope.userTotal = 0;
+    // $scope.users.$loaded().then(function(users){
+    //   users.forEach(function(stepUser){
+    //     StepLog.getEntries(stepUser.id).$loaded().then(function(entries){
+    //       entries.forEach(function(entry){
+    //         $scope.userTotal += entry.steps;
+    //       });
+    //     });
+    //   })
+    // });
   };
 
 
