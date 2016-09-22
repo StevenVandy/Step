@@ -5,10 +5,7 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
     $scope.users = Admin.getUsersFromOu(user.ou);
   }
 
-  if(user.team){
-    $scope.users = Admin.getUsersFromOu(user.ou);
-  }
-
+  
   $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
 
   $scope.query = {};
