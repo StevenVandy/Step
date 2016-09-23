@@ -12,7 +12,19 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
 
   $scope.onOuSelect = function(){
     $scope.users = Admin.getUsersFromOu($scope.query.ou);
-    // $scope.userTotal = 0;
+    // $scope.ouTotal = 0;
+
+    // StepLog.getEntriesByOu($scope.query.ou).$loaded().then(function(entries){
+    //   entries.forEach(function(entry){
+    //     $scope.ouTotal += entry.steps;
+    //   });
+    // });
+
+
+   // Admin.getUsersFromOu($scope.query.ou).$loaded().then(function(profiles){
+   //    $scope.numOuUsers = profiles.length
+   //  })
+
     // $scope.users.$loaded().then(function(users){
     //   users.forEach(function(stepUser){
     //     StepLog.getEntries(stepUser.id).$loaded().then(function(entries){
@@ -23,6 +35,18 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
     //   })
     // });
   };
+
+  // window.migration = function(){
+  //   StepLog.getAllEntries().$loaded().then(function(entries){
+  //     entries.forEach(function(entry, i){
+  //       Auth.getProfile(entry.userId).then(function(profile){
+  //         entries[i].ou = profile.ou;
+
+  //         entries.$save(i);
+  //       });
+  //     });
+  //   });
+  // }
 
 
   $scope.onUserSelect = function(){

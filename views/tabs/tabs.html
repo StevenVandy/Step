@@ -5,7 +5,7 @@
       <ion-nav-view name="home-tab"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab ng-if='true' title="Log Steps" icon-on="ion-ios-paw" icon-off="ion-ios-paw-outline" href="#/logsteps">
+    <ion-tab ng-if="true" title="Log Steps" icon-on="ion-ios-paw" icon-off="ion-ios-paw-outline" href="#/logsteps">
       <ion-nav-view name="logsteps-tab"></ion-nav-view>
     </ion-tab>
 
@@ -13,11 +13,19 @@
     <ion-nav-view name="team-tab"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab ng-if='true' title="Sign-Out" icon="ion-log-out" ng-click="logout()">
+    <ion-tab ng-if="true" title="Leaderboard" icon="ion-trophy" href="#/leaderboard">
+      <ion-nav-view name="leaderboard-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab ng-if="true" title="Sign-Out" icon="ion-log-out" ng-click="logout()">
     </ion-tab>
 
     <ion-tab ng-if="user.admin || user.ouadmin" title="Admin" icon="ion-unlocked" href="#/admin">
     <ion-nav-view name="admin-tab"></ion-nav-view>
+    </ion-tab>
+
+    <ion-tab ng-if="user.id === '4a9b0323-867c-495c-8fca-4c54e5ca7e1e'" title="Team Namer" icon="ion-pricetag" href="#/teamnamer">
+    <ion-nav-view name="teamnamer-tab"></ion-nav-view>
     </ion-tab>
 
   </ion-tabs>

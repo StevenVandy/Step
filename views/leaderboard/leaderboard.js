@@ -1,59 +1,44 @@
 'Use Strict';
-angular.module('App').controller('adminController', function (Auth, $state, $scope, StepLog, Admin, user) { 
+angular.module('App').controller('leaderboardController', function (Auth, $state, $scope, StepLog, Admin, user, Utils, $q) { 
 
-  if(user.teamadmin){
-    $scope.users = Admin.getUsersFromOu(user.ou);
-  }
-
+   
   $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
 
-  $scope.query = {};
+  $scope.avgs = [];
 
-  $scope.onOuSelect = function(){
-    $scope.users = Admin.getUsersFromOu($scope.query.ou);
-  };
+  Utils.show();
 
+  var promises = []
 
-  $scope.onUserSelect = function(){
-    console.log($scope.query.user)
-    $scope.users.forEach(function(user, i){
-      if(angular.equals($scope.query.user, user)){
-        $scope.userIndex = i;
+  $scope.ous.forEach(function(ou){
 
-      }
-    });
+    promises.push(StepLog.getEntriesByOu(ou).$loaded().then(function(entries){
+      var ouTotal = 0;
 
-    $scope.entries = StepLog.getEntries($scope.query.user.id);
-
-    $scope.total = 0;
-
-    $scope.entries.$loaded().then(function(){
-      $scope.entries.forEach(function(entry){
-        $scope.total += entry.steps;
+      entries.forEach(function(entry){
+        ouTotal += entry.steps;
       });
-    });
 
-    console.log($scope.userIndex);
-  }
+      return ouTotal;
+    })
+    .then(function(ouTotal){
+      Admin.getUsersFromOu(ou).$loaded().then(function(profiles){
+        var numOuUsers = profiles.length;
 
-  $scope.selectNextUser = function(){
+        $scope.avgs.push({ou: ou, ouAvg: ouTotal/numOuUsers});
+      })
+    }));
+
+  });
+
     
-    if($scope.users.length > $scope.userIndex + 1){
-      $scope.query.user = $scope.users[$scope.userIndex + 1];
-    } else {
-      $scope.query.user = $scope.users[0];
-    }
+  $q.all(promises).then(function(){
+    console.log($scope.avgs)
+    Utils.hide()
+  })
 
-    $scope.onUserSelect();
-  }
+  
 
-  $scope.selectPreviousUser = function(){
-    if(0 < $scope.userIndex){
-      $scope.query.user = $scope.users[$scope.userIndex - 1];
-    } else {
-      $scope.query.user = $scope.users[$scope.users.length - 1];
-    }
 
-    $scope.onUserSelect();
-  }
+  
 });
