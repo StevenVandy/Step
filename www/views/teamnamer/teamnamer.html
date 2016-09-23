@@ -1,5 +1,5 @@
 
-<ion-view view-title="Admin">
+<ion-view view-title="Team Namer">
 
  <div backstretch backstretch-images="'http://www.ironman.today/wp-content/uploads/2015/03/walking-1.jpg'"></div>
 
@@ -27,22 +27,13 @@
       </div>
 
       <br>
-      <!-- {{query.user.id}} -->
-      <table class="loggedsteps" style="width=100%">
-        <caption>Logged steps: </caption>
-        <tr>
-            <th> Date </th>
-            <th> Steps </th>
-        </tr>
-        <tr ng-repeat="x in entries | orderBy: 'date'">
-            <td>{{ x.date | date}}</td>
-            <td>{{ x.steps }}</td>
-        </tr>
-        <tr>
-             <td>Total:</td>
-             <td>{{ total }}</td>
-       </tr>
-      </table>
+
+      <form ng-submit="teamnamer()">
+        <center>
+          <input type="text" ng-model="users[userIndex].team" />
+        </center>
+        <input type="submit" value="yolo" />
+      </form>
 
     </div>
   </ion-content>

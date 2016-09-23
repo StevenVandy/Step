@@ -73,6 +73,22 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
         }
       }
     })
+    .state('tabs.teamnamer', {
+      url: '/teamnamer',
+      views: {
+        'teamnamer-tab': {
+          templateUrl: 'views/teamnamer/teamnamer.html',
+          controller:'teamnamerController'
+        }
+      },
+      resolve: {
+        admin: function(user, $state){
+          if (!user.admin && !user.ouadmin){
+            $state.go('tabs.home')
+          }
+        }
+      }
+    })
     .state('tabs.logsteps', {
       url: '/logsteps',
       views: {
@@ -86,6 +102,16 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
           return StepLog.getEntries(user.id).$loaded();
         }
       }
+    })
+    .state('tabs.leaderboard', {
+      url: '/leaderboard',
+      
+      views: {
+         'leaderboard-tab': {
+      templateUrl: 'views/leaderboard/leaderboard.html',
+      controller:'leaderboardController'
+          }
+        }
     })
     .state('tabs.home', {
       url: '/home',

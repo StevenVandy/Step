@@ -83,6 +83,9 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
         return userProfile;
       });
     },
+    getProfilesByOu: function(ou){
+      return $firebaseArray(ref.child('profile').orderByChild('ou').equalTo(ou));
+    },
     
     requireAuth: auth.$requireAuth,
 

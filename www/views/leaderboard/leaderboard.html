@@ -1,41 +1,27 @@
 
-<ion-view view-title="Admin">
-  <ion-content class="padding-top">
+<ion-view view-title="Leaderboard">
+
+ <div backstretch backstretch-images="'http://www.ironman.today/wp-content/uploads/2015/03/walking-1.jpg'"></div>
+
+  <ion-content class="padding-top shadowstyle" style="margin-left:20%; margin-right:20%; background-color:rgba(250, 250, 250, 0.92)">
     <div class="text-center padding-top">
-      <label class="item item-input item-floating-label" ng-if="user.admin">
-        <span class="input-label has-input">Org Unit</span>
-        <select style="text-align:center;margin:auto;" name="ou" type="text" ng-model="query.ou" ng-change="onOuSelect()" ng-options="ou for ou in ous track by ou" required></select>
-      </label>
-
-      <label class="item item-input item-floating-label">
-        <span class="input-label has-input">User</span>
-        <select style="text-align:center;margin:auto;" name="user" type="text" ng-model="query.user" ng-change="onUserSelect()" ng-options="(user.firstname + ' ' + user.lastname) for user in users track by user.id" required></select>
-      </label>
-      <div>
-        <md-button class="md-raised" ng-click="selectPreviousUser()">
-          <i class="ion-chevron-left small"></i>
-        </md-button>
-        &nbsp;
-        &nbsp;
-        <md-button class="md-raised" ng-click="selectNextUser()">
-          <i class="ion-chevron-right small"></i>
-        </md-button>
+    <div class="list text-center padding">
+        <i class="icon ion-trophy -b medium positive"></i>
       </div>
-
-      <table class="loggedsteps" style="width:100%">
-        <caption>Logged steps: </caption>
+          
+       <br>
+      <!-- {{query.user.id}} -->
+      <table class="loggedsteps" style="width=100%">
+        <caption>Org Unit Rankings: </caption>
         <tr>
-            <th> Date </th>
-            <th> Steps </th>
+            <th> Org Unit </th>
+            <th> Average Steps Logged </th>
         </tr>
-        <tr ng-repeat="x in entries | orderBy: 'date'">
-            <td>{{ x.date | date}}</td>
-            <td>{{ x.steps }}</td>
+        <tr ng-repeat="avg in avgs | orderBy:'-ouAvg' ">
+            <td>{{ avg.ou }}</td>
+            <td>{{ avg.ouAvg | number:0 }}</td>
         </tr>
-        <tr>
-             <td>Total:</td>
-             <td>{{ total }}</td>
-       </tr>
+        
       </table>
 
     </div>

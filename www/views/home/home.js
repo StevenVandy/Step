@@ -26,7 +26,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
 
   $scope.stepcompstartdate = new Date(2016,08,12,0,0,0,0);
  
-
+$scope.today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
 
  // $scope.usernumberofdays = ($scope.lastDateflat.getTime()-$scope.stepcompstartdate.getTime())/(1000*60*60*24);///(1000*60*60*24)turn milli seconds into days
@@ -93,18 +93,16 @@ angular.module('App').controller('homeController', function ($scope, user, entri
         
       }
 
+if($scope.maxDate < $scope.today){
+        $scope.maxDate = $scope.today;
+                
       }
 
-      console.log($scope.total)
-      console.log($scope.distancetogoal)
-      console.log($scope.lastDatemonth)
-      console.log($scope.lastDateyear)
-      console.log($scope.percentagetogoal)
-      console.log($scope.percentagetoprize)
-      console.log($scope.lastDate)
-      console.log($scope.lastDateflat)
-      console.log($scope.stepcompstartdate)
-      console.log($scope.usernumberofdays)
+      }
+
+      console.log($scope.maxDate)
+      console.log($scope.today)
+      
 
       // if($scope.usernumberofdays > 1){
         $scope.averagestepsperday=Math.round($scope.total/$scope.usernumberofdays);

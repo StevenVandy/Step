@@ -24,6 +24,9 @@ angular.module('App').factory('StepLog', function($firebaseArray, FURL, Auth){
 
     getAllEntries: function(){
       return $firebaseArray(ref);
+    },
+    getEntriesByOu: function(ou){
+      return $firebaseArray(ref.orderByChild('ou').equalTo(ou));
     }
 
     // getTeamEntries: function(uid){
