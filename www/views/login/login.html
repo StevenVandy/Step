@@ -25,9 +25,9 @@
             <!-- Edit this messages if you want -->
             <div class="form-errors" ng-messages="loginForm.txtemail.$error" ng-if="loginForm.$submitted">
               <div class="form-error" ng-message="required">This field is required.</div>
-              <div class="form-error" ng-message="email">This field is must be an email.</div>
-              <div class="form-error" ng-message="minlength">This field is must be at least 5 characters.</div>
-              <div class="form-error" ng-message="maxlength">This field is must be less than 40 characters.</div>
+              <div class="form-error" ng-message="email">This field must be an email.</div>
+              <div class="form-error" ng-message="minlength">This field must be at least 5 characters.</div>
+              <div class="form-error" ng-message="maxlength">This field must be less than 40 characters.</div>
             </div>
             <label class="item item-input item-floating-label" ng-class="{ 'has-error-lr' : loginForm.txtPassword.$invalid && loginForm.$submitted }">
               <span class="input-label">Password</span>

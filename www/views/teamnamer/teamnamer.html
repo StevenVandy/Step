@@ -13,7 +13,7 @@
      <!--  {{ouTotal}} /// {{numOuUsers}} -->
       <label class="item item-input item-floating-label">
         <span class="input-label has-input">User</span>
-        <select style="text-align:center;margin:auto;" name="user" type="text" ng-model="query.user" ng-change="onUserSelect()" ng-options="(user.firstname + ' ' + user.lastname) for user in users track by user.id" required></select><!-- + ' '+user.registered_in -->
+        <select style="text-align:center;margin:auto;" name="user" type="text" ng-model="query.user" ng-change="onUserSelect()" ng-options="(user.firstname + ' ' + user.lastname) for user in users | orderBy: 'firstname' track by user.id" required></select><!-- + ' '+user.registered_in -->
       </label>
       <div>
         <md-button class="md-raised" ng-click="selectPreviousUser()">
