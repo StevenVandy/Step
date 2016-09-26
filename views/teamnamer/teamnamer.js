@@ -1,11 +1,5 @@
 'Use Strict';
 angular.module('App').controller('teamnamerController', function (Auth, $state, $scope, StepLog, Admin, user) { 
-
-  if(user.ouadmin){
-    $scope.users = Admin.getUsersFromOu(user.ou);
-  }
-
-  
   $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
 
   $scope.query = {};
@@ -28,7 +22,9 @@ angular.module('App').controller('teamnamerController', function (Auth, $state, 
   };
 
   $scope.teamnamer = function(){
-    $scope.users.$save($scope.userIndex);
+    if($scope.users){
+      $scope.users.$save($scope.userIndex);
+    }
   }
 
   $scope.selectNextUser = function(){
