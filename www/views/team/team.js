@@ -3,7 +3,18 @@ angular.module('App').controller('teamController', function (Auth, $state, $scop
 
   console.log(Admin)
 
-  $scope.users = Admin.getUsersFromTeam(user.team);
+  Admin.getUsersFromTeam(user.team).$loaded().then(function(users){
+    $scope.users = users.sort(function(a, b){
+      if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
+        return 1;
+      }
+      if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
+        return -1;
+      }
+      // a must be equal to b
+      return 0;
+    })
+  });
 
 
   $scope.query = {};

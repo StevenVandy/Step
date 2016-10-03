@@ -27,6 +27,17 @@ angular.module('App').factory('StepLog', function($firebaseArray, FURL, Auth){
     },
     getEntriesByOu: function(ou){
       return $firebaseArray(ref.orderByChild('ou').equalTo(ou));
+    },
+    updateTotalSteps: function(uid){
+      StepLog.getEntries(uid).$loaded().then(function(entries){
+        var total = 0;
+
+        angular.forEach(entries, function(entry){
+          total += entry.steps;
+        });
+
+        Auth.updateProfileSteps(uid, total);
+      });
     }
 
     // getTeamEntries: function(uid){

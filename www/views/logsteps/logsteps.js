@@ -71,7 +71,7 @@ angular.module('App').controller('logstepsController', function ($scope, user, e
         StepLog.add($scope.stepLog).then($scope.calculate);
       }
 
-      
+      StepLog.updateTotalSteps(user.id);
     }
   };
 

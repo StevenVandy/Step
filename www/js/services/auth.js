@@ -83,8 +83,22 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
         return userProfile;
       });
     },
+    getTopProfiles: function(){
+      return $firebaseArray(ref.child('profile').orderByChild('steps').limitToLast(150));
+    },
     getProfilesByOu: function(ou){
       return $firebaseArray(ref.child('profile').orderByChild('ou').equalTo(ou));
+    },
+    updateProfileSteps: function(uid, steps){
+      var profiles = $firebaseArray(ref.child('profile')
+        .orderByChild('id')
+        .equalTo(uid)
+        .limitToFirst(1));
+
+      profiles.$loaded(function(){
+        profiles[0].steps = steps;
+        profiles.$save(0);
+      });
     },
     
     requireAuth: auth.$requireAuth,

@@ -8,21 +8,60 @@
     <div class="list text-center padding">
         <i class="icon ion-trophy -b medium positive"></i>
       </div>
-          
-       <br>
+       
+       <caption>Disclaimer: These values update real time and depend on what steps have been logged. Jumps in ranking may occur when new entries are added.</caption>
+
       <!-- {{query.user.id}} -->
       <table class="loggedsteps" style="width=100%">
-        <caption>Org Unit Rankings: </caption>
+        <h4>Org Unit Rankings: </h4>
         <tr>
+            <th> # </th>
             <th> Org Unit </th>
             <th> Average Steps Logged </th>
         </tr>
         <tr ng-repeat="avg in avgs | orderBy:'-ouAvg' ">
+            <td>{{ $index +1}}</td>
             <td>{{ avg.ou }}</td>
             <td>{{ avg.ouAvg | number:0 }}</td>
         </tr>
         
       </table>
+
+      <br>
+
+      <table ng-if="user.team !=='Empty'" class="loggedsteps" style="width=100%">
+        <h4 ng-if="user.team !=='Empty'"> Team Rankings: </h4>
+        <tr>
+            <th> # </th>
+            <th> Team </th>
+            <th> Average Steps Logged </th>
+        </tr>
+        <tr ng-repeat="teamTotal in teamTotals | orderBy: '-avg'">
+            <td>{{ $index +1}}</td>
+            <td>{{ teamTotal.team }}</td>
+            <td>{{ teamTotal.avg | number:0 }}</td>
+        </tr>
+        
+      </table>
+
+        <br>
+
+      <table class="loggedsteps" style="width=100%">
+        <h4>Individual Rankings: </h4>
+        <tr>
+            <th> # </th>
+            <th> Name </th>
+            <th> Steps Logged </th>
+        </tr>
+        <tr ng-repeat="prof in profiles | orderBy: '-steps'">
+            <td>{{ $index +1}}</td>
+            <td>{{ prof.firstname + " " + prof.lastname}}</td>
+            <td>{{ prof.steps | number:0 }}</td>
+        </tr>
+        
+      </table>
+
+
 
     </div>
   </ion-content>

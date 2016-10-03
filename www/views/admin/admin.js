@@ -2,7 +2,18 @@
 angular.module('App').controller('adminController', function (Auth, $state, $scope, StepLog, Admin, user) { 
 
   if(user.ouadmin){
-    $scope.users = Admin.getUsersFromOu(user.ou);
+    Admin.getUsersFromOu(user.ou).$loaded().then(function(users){
+      $scope.users = users.sort(function(a, b){
+        if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
+          return 1;
+        }
+        if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
+    });
   }
 
   
@@ -11,7 +22,18 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
   $scope.query = {};
 
   $scope.onOuSelect = function(){
-    $scope.users = Admin.getUsersFromOu($scope.query.ou);
+    Admin.getUsersFromOu($scope.query.ou).$loaded().then(function(users){
+      $scope.users = users.sort(function(a, b){
+        if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
+          return 1;
+        }
+        if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
+          return -1;
+        }
+        // a must be equal to b
+        return 0;
+      })
+    });
     // $scope.ouTotal = 0;
 
     // StepLog.getEntriesByOu($scope.query.ou).$loaded().then(function(entries){
