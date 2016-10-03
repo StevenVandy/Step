@@ -6,32 +6,70 @@ angular.module('App').controller('leaderboardController', function (Auth, $state
 
   $scope.avgs = [];
 
+  $scope.user = user;
+
   Utils.show();
 
   var promises = []
 
   $scope.ous.forEach(function(ou){
 
-    promises.push(StepLog.getEntriesByOu(ou).$loaded().then(function(entries){
-      var ouTotal = 0;
+    promises.push(Admin.getUsersFromOu(ou).$loaded().then(function(profiles){
+      var numOuUsers = profiles.length;
 
-      entries.forEach(function(entry){
-        ouTotal += entry.steps;
+      var ouTotal = 0;
+      var numDupes = 0;
+
+      profiles.forEach(function(profile){
+        if(profile.steps){
+          ouTotal += profile.steps;
+        } else {
+          numDupes += 1;
+        }
       });
 
-      return ouTotal;
-    })
-    .then(function(ouTotal){
-      Admin.getUsersFromOu(ou).$loaded().then(function(profiles){
-        var numOuUsers = profiles.length;
+      $scope.avgs.push({ou: ou, ouAvg: ouTotal/(numOuUsers - numDupes)});
 
-        $scope.avgs.push({ou: ou, ouAvg: ouTotal/numOuUsers});
-      })
+      if(user.ou == ou){
+        $scope.ouProfiles = profiles;
+        var groupedTeams = {};
+
+        profiles.forEach(function(profile){
+          if(profile.team === 'Empty' || !profile.steps){
+            return;
+          }
+
+          if(!groupedTeams[profile.team]){
+            groupedTeams[profile.team] = [];
+          }
+
+          groupedTeams[profile.team].push(profile);
+        });
+
+        $scope.teamTotals = [];
+        console.log(groupedTeams);
+
+        angular.forEach(groupedTeams, function(profiles, team){
+          var total = 0;
+
+          angular.forEach(profiles, function(profile){
+            total += profile.steps;
+          });
+
+          $scope.teamTotals.push({team: team, total: total, avg: total/profiles.length});
+        });
+
+      }
     }));
 
   });
 
-    
+
+  promises.push(Auth.getTopProfiles().$loaded().then(function(profiles){
+    return $scope.profiles = profiles;
+  }));
+
+
   $q.all(promises).then(function(){
     console.log($scope.avgs)
     Utils.hide()
