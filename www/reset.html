@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <base href="/"></base>
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="lib/angular-material/angular-material.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+
+    <script>
+      angular.module('App', ['firebase']).config(function($locationProvider){
+        $locationProvider.html5Mode(true);
+        firebase.initializeApp({
+            apiKey: 'AIzaSyDkV0UFbFdzE7e7yQI9YHfNblUdquhPVkQ',
+            authDomain: 'glowing-torch-2390.firebaseio.com',
+            databaseURL: 'https://glowing-torch-2390.firebaseio.com/'
+        });
+      }).controller('resetPassword', function($scope, $firebaseAuth, $window){
+        $scope.user = {};
+
+
+        $scope.submitForm = function(){
+            $scope.error = ''
+
+            $firebaseAuth().$sendPasswordResetEmail($scope.user.email).then(function(){
+                $window.location ='/';
+            }).catch(function(err){
+                $scope.error = err.message;
+            });
+        }
+      });
+    </script>
+
+  </head>
+
+  <body ng-app="App">
+    <div ng-controller="resetPassword">
+        <div>
+            <center>
+            <br><br><br>
+                <h1>Forgot Password</h1>
+                <form ng-submit="submitForm()">
+                    <span ng-bind="error" style="color:red;"></span>
+                    <input type="text" ng-model="user.email" placeholder="Enter Email Here" />
+                    <input type="submit" value="Reset" />
+                    <h4>After selecting "Reset", you will receive an email shortly and be rerouted to the login page.</h4>
+                    <a href="/">Go Home</a>
+                </form>
+            </center>
+        </div>
+    </div>
+  </body>
+</html>
