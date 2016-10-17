@@ -33,11 +33,13 @@
         <tr>
             <th> Date </th>
             <th> Steps </th>
+            <!-- <th> ID </th> -->
         </tr>
         <tr ng-repeat="x in entries | orderBy: 'date'">
             <td>{{ x.date | date}}</td>
             <td>{{ x.steps }}</td>
-        </tr>
+            <!-- <td>{{ x.$id }}</td> -->
+            </tr>
         <tr>
              <td>Total:</td>
              <td>{{ total }}</td>

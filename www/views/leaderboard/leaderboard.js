@@ -8,7 +8,7 @@ angular.module('App').controller('leaderboardController', function (Auth, $state
 
   $scope.user = user;
 
-  Utils.show();
+  // Utils.show();
 
   var promises = []
 
@@ -70,10 +70,10 @@ angular.module('App').controller('leaderboardController', function (Auth, $state
   }));
 
 
-  $q.all(promises).then(function(){
-    console.log($scope.avgs)
-    Utils.hide()
-  })
+  // $q.all(promises).then(function(){
+  //   console.log($scope.avgs)
+  //   Utils.hide()
+  // })
 
   
 
