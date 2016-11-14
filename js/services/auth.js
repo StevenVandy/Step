@@ -84,7 +84,7 @@ angular.module('App').factory('Auth', function(FURL, $firebaseAuth, $firebaseArr
       });
     },
     getTopProfiles: function(){
-      return $firebaseArray(ref.child('profile').orderByChild('steps').limitToLast(150));
+      return $firebaseArray(ref.child('profile').orderByChild('steps').limitToLast(197));
     },
     getProfilesByOu: function(ou){
       return $firebaseArray(ref.child('profile').orderByChild('ou').equalTo(ou));

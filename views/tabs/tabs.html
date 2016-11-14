@@ -5,17 +5,17 @@
       <ion-nav-view name="home-tab"></ion-nav-view>
     </ion-tab>
 
-    <ion-tab ng-if="true" title="Log Steps" icon-on="ion-ios-paw" icon-off="ion-ios-paw-outline" href="#/logsteps">
+    <!-- <ion-tab ng-if="true" title="Log Steps" icon-on="ion-ios-paw" icon-off="ion-ios-paw-outline" href="#/logsteps">
       <ion-nav-view name="logsteps-tab"></ion-nav-view>
+    </ion-tab> -->
+
+    <ion-tab ng-if="user.team !== 'Empty'" title="Team" icon="ion-android-contacts" href="#/team">
+    <ion-nav-view name="team-tab"></ion-nav-view>
     </ion-tab>
 
-    <!-- <ion-tab ng-if="user.team !== 'Empty'" title="Team" icon="ion-android-contacts" href="#/team">
-    <ion-nav-view name="team-tab"></ion-nav-view>
-    </ion-tab> -->
-
-    <!-- <ion-tab ng-if="true" title="Leaderboard" icon="ion-trophy" href="#/leaderboard">
+    <ion-tab ng-if="true" title="Leaderboard" icon="ion-trophy" href="#/leaderboard">
       <ion-nav-view name="leaderboard-tab"></ion-nav-view>
-    </ion-tab> -->
+    </ion-tab>
 
     <ion-tab ng-if="true" title="Sign-Out" icon="ion-log-out" ng-click="logout()">
     </ion-tab>

@@ -17,6 +17,16 @@ angular.module('App').factory('Admin', function($firebaseArray, FURL, Auth, Step
           StepLog.updateTotalSteps(profile.id);
         });
       });
+    },
+    renameOu: function(currentName){
+      var newName = 'E&C and EIX';
+
+      return Admin.getUsersFromOu(currentName).$loaded(function(profiles){
+        angular.forEach(profiles, function(profile, i){
+          profiles[i].ou = newName;
+          profiles.$save(i);
+        });
+      });
     }
   };
 
