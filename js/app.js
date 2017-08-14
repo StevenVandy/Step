@@ -103,16 +103,16 @@ angular.module('App', ['ionic','ngStorage', 'ngCordova','firebase','ngMessages',
         }
       }
     })
-    .state('tabs.leaderboard', {
-      url: '/leaderboard',
+    // .state('tabs.leaderboard', {
+    //   url: '/leaderboard',
       
-      views: {
-         'leaderboard-tab': {
-      templateUrl: 'views/leaderboard/leaderboard.html',
-      controller:'leaderboardController'
-          }
-        }
-    })
+    //   views: {
+    //      'leaderboard-tab': {
+    //   templateUrl: 'views/leaderboard/leaderboard.html',
+    //   controller:'leaderboardController'
+    //       }
+    //     }
+    // })
     .state('tabs.home', {
       url: '/home',
       views: {

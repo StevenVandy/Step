@@ -10,7 +10,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
   };
 
   $scope.entries = entries;
-  $scope.lastDate = new Date(new Date(2016,08,12,0,0,0,0));
+  $scope.lastDate = new Date(new Date(2017,08,11,0,0,0,0));
 
   $scope.findEntryIndexByDate = function(date){
     var index = -1;
@@ -24,7 +24,7 @@ angular.module('App').controller('homeController', function ($scope, user, entri
     return index;
   }
 
-  $scope.stepcompstartdate = new Date(2016,08,12,0,0,0,0);
+  $scope.stepcompstartdate = new Date(2017,08,11,0,0,0,0);
  
 $scope.today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
@@ -138,8 +138,8 @@ if($scope.maxDate < $scope.today){
   //var mindate = new date(2016,9,1,0,0,0,0);
   //var maxdate = new date(2016,10,30,0,0,0,0);
 
-  $scope.minDate = new Date(2016,8,12,0,0,0,0);
-  $scope.maxDate = new Date(2016,9,24,0,0,0,0);
+  $scope.minDate = new Date(2017,8,11,0,0,0,0);
+  $scope.maxDate = new Date(2017,9,23,0,0,0,0);
 
   $scope.logOut = function () {
       Auth.logout();
