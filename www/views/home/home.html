@@ -14,18 +14,18 @@
             <div class="col text-center">
 
           <h1>Hello {{ user.firstname }}</h1>
-    <!-- <h4>You are on Team: {{user.team}}</h4> -->
+    <h4>You are on Team: {{user.team}}</h4>
     
   
 
-      <!-- <h4>You last logged your steps: {{lastDate | date}}</h4> -->
+      <h4>You last logged your steps: {{lastDate | date}}</h4>
       
       <h4>You logged: {{total | number:0}} steps, that's {{distancemiles | number:0}} miles!</h4>
       
       
       <h4>You averaged {{total/((lastDate - stepcompstartdate)/(1000*60*60*24)+1) | number:0}} steps per day!</h4>
 
-     <!--  <h4>{{(maxDate-today)/(1000*60*60*24) | number:0}} days left in the challenge!</h4> -->
+      <h4>{{(maxDate-today)/(1000*60*60*24) | number:0}} days left in the challenge!</h4>
 
 
       <br>
@@ -36,21 +36,21 @@
              
       <div>
         <!-- <image src="https://www.sce.com/wps/scethemeresponsive/static/themes/scethemeresponsive/images/apple-touch-icon-144x144-precomposed.png" height="100" /> -->
-      <!--   <i class="icon ion-android-walk -b medium black" ng-style="{
+        <i class="icon ion-android-walk -b medium black" ng-style="{
           'margin-left': percentagetoprize*100 / 2 + '%',
           'margin-right': 50-(percentagetoprize*100 / 2) + '%'
-        }"></i> -->
+        }"></i>
         <!-- <image src="https://honeymoonpixie.com/assets/shutterstock_5704870s(1).jpg" height="100"/> -->
-        <!-- <md-progress-linear md-mode="determinate" value="{{percentagetoprize*100}}" style="padding-left:25%;padding-right:25%;"></md-progress-linear> -->
+        <md-progress-linear md-mode="determinate" value="{{percentagetoprize*100}}" style="padding-left:25%;padding-right:25%;"></md-progress-linear>
     </div>
      
-      <h4>The challenge is over</h4>
+      <!-- <h4>The challenge is over</h4>
       <h4>Check out the leader board to see how SCE did</h4>
 
        <h4>Over 500 employees participated</h4>
        <h4>The challenge totaled 196 million steps (~98,000 miles)</h4>
-       <h4>Nearly 10 million calories were burmned</h4>
-       <h4>No Injuries reported by any participants</h4>
+       <h4>Nearly 10 million calories were burned</h4>
+       <h4>No Injuries reported by any participants</h4> -->
 
       <br>
       <hr width=90%>

@@ -8,7 +8,7 @@ angular.module('App').controller('registerController', function ($scope, $state,
       .then(function() {
          Utils.hide();
          console.log("Log" + JSON.stringify(user));        
-         Utils.alertshow("Successfully","The User was Successfully Created.");
+         Utils.alertshow("Successful","The User was Successfully Created.");
          $location.path('/');
       }, function(err) {
          Utils.hide();
@@ -18,7 +18,7 @@ angular.module('App').controller('registerController', function ($scope, $state,
   };
 
  
-    $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services']
+    $scope.ous = ['Audit Services','Health & Safety','Customer Serive','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services']
       
 
 
