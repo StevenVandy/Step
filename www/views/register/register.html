@@ -5,10 +5,16 @@
   <ion-content class="padding-top">
 
 
-  <div style="margin-left:20%; margin-right:20%; margin-bottom:0%;margin-top:0%; background-color:rgba(256, 256, 256, .98)">
+  <div style="margin-left:20%; margin-right:20%; margin-bottom:20%;margin-top:10%; background-color:rgba(256, 256, 256, .98)">
     <div class="text-center padding-top">
       <i class="icon ion-android-person-add larger positive"></i>
+
     </div>
+    <div class="text-center padding-top">
+      <i ><i>For use by EIX and SCE employees only</i></i>
+
+    </div>
+    
     <form name="registerForm" novalidate ng-submit="registerForm.$valid && register(user)"
     ng-class="{ 'has-error' : registerForm.txtemail.$invalid && registerForm.$submitted }">
     <div class="list">        
@@ -18,11 +24,13 @@
         <input name="txtemail" type="email" ng-model="user.email"  placeholder="Email@sce.com"
         ng-minlength="5"
         ng-maxlength="40"
-        required> <!--ng-pattern="/^[A-Za-z0-9._%+-]+@sce.com$/"-->
+        required
+         ng-pattern= "/^[A-Za-z0-9._%+-]+(@sce.com|@edisonintl.com)$/"
+         >
       </label>
       <div class="form-errors" ng-messages="registerForm.txtemail.$error" ng-if="registerForm.$submitted">
-        <div class="form-error" ng-message="required">This should be name@sce.com</div>
-        <!--<div class="form-error" ng-message="pattern">This should be name@sce.com</div>  I DID A THING -->
+        <div class="form-error" ng-message="required">This should be name@sce.com or edisonintl.com</div>
+        <div class="form-error" ng-message="pattern">This should be name@sce.com or edisonintl.com</div>  <!-- I DID A THING  -->
         <div class="form-error" ng-message="email">This field is must be an email address.</div>
         <div class="form-error" ng-message="maxlength">Must be less than 40 characters</div>
       </div>
@@ -97,7 +105,7 @@
 
       <label class="item">
           <input type="checkbox" id="cb" name="cb" required ng-model="user.agreed" />
-          <span style="white-space: normal">I agree that all data submitted to StepsOnSteps.com is accurate and public. Data will be tallied and visualized to determine placement in the SCE Pedometer Challenge.</span>
+          <span style="white-space: normal">I agree that all data submitted to StepsOnSteps.com is accurate and understand data will be used internally by Edison International and SCE to determine participation in the challenge.</span>
       </label>
       <div class="form-errors" ng-messages="registerForm.cb.$error" ng-if="registerForm.$submitted">
         <div class="form-error" ng-message="required">Please agree to terms</div>
