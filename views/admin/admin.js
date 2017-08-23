@@ -7,7 +7,8 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
         if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
           return 1;
         }
-        if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
+        if (a.firstname.toUpperCase() < b
+          .firstname.toUpperCase()) {
           return -1;
         }
         // a must be equal to b
@@ -17,7 +18,7 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
   }
 
   
-  $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
+  $scope.ous = [$scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Government Affairs','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
 
   $scope.query = {};
 
