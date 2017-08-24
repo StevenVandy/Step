@@ -18,7 +18,7 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
   }
 
   
-  $scope.ous = [$scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
+  $scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
 
   $scope.query = {};
 
