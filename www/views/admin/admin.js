@@ -112,6 +112,14 @@ angular.module('App').controller('adminController', function (Auth, $state, $sco
       $scope.query.user = $scope.users[$scope.users.length - 1];
     }
 
+
+
     $scope.onUserSelect();
+  }
+
+  $scope.teamnamer = function(){
+    if($scope.users){
+      $scope.users.$save($scope.userIndex);
+    }
   }
 });
