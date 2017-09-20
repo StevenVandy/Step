@@ -4,55 +4,18 @@ angular.module('App').controller('leaderboardController', function (Auth, $state
    
   // $scope.ous = ['Audit Services','CEHS','Corp Comm','EIX','Eithics & Compliance', 'Finance','Government Affairs', 'Human Resources', 'Legal', 'EPM/Generation', 'Reg Affairs & SIPP', 'Edison Material Supply','Transportation Services'];
 
+  $scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
+
   $scope.avgs = [];
 
-  $scope.avgs = $scope.avgs.concat([
-    { ou: 'EPM/Generation', ouAvg: 472240 },
-    { ou: 'Edison Material Supply', ouAvg: 425711 },
-    { ou: 'Transportation Services', ouAvg: 423739 },
-    { ou: 'Reg Affairs & SIPP', ouAvg: 419428 },
-    { ou: 'Legal', ouAvg: 404711 },
-    { ou: 'CEHS', ouAvg: 400060 },
-    { ou: 'Finance', ouAvg: 363724 },
-    { ou: 'Audit Services', ouAvg: 359600 },
-    { ou: 'E&C and EIX', ouAvg: 335435 },
-    { ou: 'Human Resources', ouAvg: 318034 },
-    { ou: 'Corp Comm', ouAvg: 259928 },
-    { ou: 'Government Affairs', ouAvg: 186726 },
-  ]);
-
-  $scope.ous = [];
-
-
-// $scope.avgs = [];
-
-//   $scope.avgs = $scope.avgs.concat([
-//     { ou: 'EPM/Generation', ouAvg: 472240 },
-//     { ou: 'Edison Material Supply', ouAvg: 425711 },
-//     { ou: 'Transportation Services', ouAvg: 423739 },
-//     { ou: 'Reg Affairs & SIPP', ouAvg: 419428 },
-//     { ou: 'Legal', ouAvg: 404711 },
-//     { ou: 'CEHS', ouAvg: 400060 },
-//     { ou: 'Finance', ouAvg: 363724 },
-//     { ou: 'Audit Services', ouAvg: 359600 },
-//     { ou: 'E&C and EIX', ouAvg: 335435 },
-//     { ou: 'Human Resources', ouAvg: 318034 },
-//     { ou: 'Corp Comm', ouAvg: 259928 },
-//     { ou: 'Government Affairs', ouAvg: 186726 },
-//   ]);
-
-
-
-
   
-
   angular.forEach($scope.avgs, function(avg){
     $scope.ous.push(avg.ou);
   })
 
   $scope.user = user;
 
-  // Utils.show();
+   Utils.show();
 
   var promises = []
 
@@ -72,7 +35,7 @@ angular.module('App').controller('leaderboardController', function (Auth, $state
         }
       });
 
-      // $scope.avgs.push({ou: ou, ouAvg: ouTotal/(numOuUsers - numDupes)});
+       $scope.avgs.push({ou: ou, ouAvg: ouTotal/(numOuUsers - numDupes)});
 
       if(user.ou == ou){
         $scope.ouProfiles = profiles;
