@@ -4156,6 +4156,8 @@ ion-tabs.tabs-color-active-dark .tab-item {
   font-size: 10px;
   line-height: 14px; }
 
+.tabs-fullwidth .tab-item { max-width: 100%; }
+
 .tab-item .icon {
   display: block;
   margin: 0 auto;
