@@ -1,40 +1,40 @@
 'Use Strict';
 angular.module('App').controller('adminController', function (Auth, $state, $scope, StepLog, Admin, user) { 
 
-  if(user.ouadmin){
-    Admin.getUsersFromOu(user.ou).$loaded().then(function(users){
-      $scope.users = users.sort(function(a, b){
-        if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
-          return 1;
-        }
-        if (a.firstname.toUpperCase() < b
-          .firstname.toUpperCase()) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      })
-    });
-  }
+  // if(user.ouadmin){
+  //   Admin.getUsersFromOu(user.ou).$loaded().then(function(users){
+  //     $scope.users = users.sort(function(a, b){
+  //       if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
+  //         return 1;
+  //       }
+  //       if (a.firstname.toUpperCase() < b
+  //         .firstname.toUpperCase()) {
+  //         return -1;
+  //       }
+  //       // a must be equal to b
+  //       return 0;
+  //     })
+  //   });
+  // }
 
   
-  $scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
+  // $scope.ous = ['Audit Services','Health & Safety','Customer Service','Corp Comm','EIX','Ethics & Compliance', 'Finance','Information Technology', 'Human Resources', 'Legal', 'Environmental Services', 'EPM/Generation', 'Reg Affairs & SIPP', 'Supply Chain','Transportation Services'];
 
-  $scope.query = {};
+  // $scope.query = {};
 
-  $scope.onOuSelect = function(){
-    Admin.getUsersFromOu($scope.query.ou).$loaded().then(function(users){
-      $scope.users = users.sort(function(a, b){
-        if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
-          return 1;
-        }
-        if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      })
-    });
+  // $scope.onOuSelect = function(){
+  //   Admin.getUsersFromOu($scope.query.ou).$loaded().then(function(users){
+  //     $scope.users = users.sort(function(a, b){
+  //       if (a.firstname.toUpperCase() > b.firstname.toUpperCase()) {
+  //         return 1;
+  //       }
+  //       if (a.firstname.toUpperCase() < b.firstname.toUpperCase()) {
+  //         return -1;
+  //       }
+  //       // a must be equal to b
+  //       return 0;
+  //     })
+  //   });
     // $scope.ouTotal = 0;
 
     // StepLog.getEntriesByOu($scope.query.ou).$loaded().then(function(entries){
